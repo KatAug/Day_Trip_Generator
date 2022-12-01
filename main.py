@@ -4,27 +4,37 @@ import random
 destinations = ["Galveston Island", "Jacob's Well", "Six Flags Fiesta", "Dinosaur Valley State Park", "Bracken Cave"]
 restaurants = ["Whataburger", "Chili's", "Texas Roadhouse", "Chick-fil-A", "Firehouse Subs"]
 mode_of_transportation = ["Car", "Bus", "Train", "Motorcycle", "Helicopter"]
-entertainment = ["Bingo", "Dancing", "Karaoke", "Bouncy Castle", "Comedy Club"]
+entertainment = ["playing Bingo", "Dancing", "Karaoke", "bouncing in a Bouncy Castle", "the Comedy Club"]
 
+greeting = "Thank you for choosing Day Trip Generator! Let's get started:"
+print(greeting)
 
 pick_destination = random.choice(destinations)
+my_destination = f"Your destination is {pick_destination}!"
+
 def destination():
-    print(pick_destination)
+    print(my_destination)
 destination()
 
+user_input= input("Does this destination sound good to you?")
+#while loop?? 
+
 pick_restaurant = random.choice(restaurants)
+my_restaurant = f"You will dine at {pick_restaurant}!"
 def restaurant():
-    print(pick_restaurant)
+    print(my_restaurant)
 restaurant()
 
 pick_mode_of_transportation = random.choice(mode_of_transportation)
+my_transportation = f"You will arrive via {pick_mode_of_transportation}!"
 def transportation():
-    print(pick_mode_of_transportation)
+    print(my_transportation)
 transportation()
 
 pick_entertainment = random.choice(entertainment)
+my_entertainment = f"While there, you will enjoy {pick_entertainment}!"
 def entertainment():
-    print(pick_entertainment)
+    print(my_entertainment)
 entertainment()
 
 
