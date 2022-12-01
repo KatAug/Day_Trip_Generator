@@ -17,22 +17,37 @@ def destination():
 destination()
 
 user_input= input("Does this destination sound good to you?")
-#while loop?? 
+my_destination = f"Your destination is {pick_destination}!"
+
+while user_input == ("No"):
+    print("Let us try again!")
+    pick_destination = random.choice(destinations)
+    print(f"Your destination is {pick_destination}!")
+    user_input= input("Does this destination sound good to you?")
+if user_input == ("Yes"):
+    print(f"{pick_destination} is a great destination!")
+else:
+    print("Let us try again")
+
+
 
 pick_restaurant = random.choice(restaurants)
 my_restaurant = f"You will dine at {pick_restaurant}!"
+
 def restaurant():
     print(my_restaurant)
 restaurant()
 
 pick_mode_of_transportation = random.choice(mode_of_transportation)
 my_transportation = f"You will arrive via {pick_mode_of_transportation}!"
+
 def transportation():
     print(my_transportation)
 transportation()
 
 pick_entertainment = random.choice(entertainment)
 my_entertainment = f"While there, you will enjoy {pick_entertainment}!"
+
 def entertainment():
     print(my_entertainment)
 entertainment()
