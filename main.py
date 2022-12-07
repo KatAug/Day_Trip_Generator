@@ -97,36 +97,31 @@ while user_input == ("N"):
     print(f"You will be {pick_things_to_do}!")
     print("")
     user_input= input("Does that sound good to you?(Y/N)")
-    print("")
     if user_input == ("Y"):
         print(f"{pick_things_to_do} will be a lot of fun!!")
-        print("")
-
-user_input = input(f"Does traveling to {pick_destination} via {pick_mode_of_transportation}, eating at {pick_restaurant} and {pick_things_to_do} sound like the perfect day trip?(Y/N)")
-print("")
-#my_day_trip_dictionary = {"destination":[destination_list], "restaurant": [restaurant_list], "transportation": [mode_of_transportation_list], "entertainment": [things_to_do_list]}
 
 my_day_trip_dictionary = {"Destination":[destination_list], "Restaurant": [restaurant_list], "Transportation": [mode_of_transportation_list], "Entertainment": [things_to_do_list]}
-
-def choices(dict):
-    for key in dict:
-        print(key)
-        print("")
-    user_input = input("Which part would you like to change from the choices above?")
+user_input = input(f"Does traveling to {pick_destination} via {pick_mode_of_transportation}, eating at {pick_restaurant} and {pick_things_to_do} sound like the perfect day trip?(Y/N)")
+print("")
+while user_input == "N":
+    def choices(dict):
+        for key in dict:
+            print(key)
+            print("")
+    choices(my_day_trip_dictionary)
+    user_input = input("Which part(s) would you like to change from the list above?")
     print("")
     if user_input == "Destination":
         pick_destination = random.choice(destination_list)
         print(f"Your new destination is {pick_destination}!")
         print("")
-        user_input= input("Does that sound good to you?(Y/N)")
-        print("")
         if user_input == "N":
             pick_destination = random.choice(destination_list)
             print(f"Your new destination is {pick_destination}!")
             print("")
-            user_input= input("Does the new destination sound good to you?(Y/N)")
-            print("")
-    if user_input == "Restaurant":
+        user_input= input("Does the new destination sound good to you?(Y/N)")
+        print("")
+    elif user_input == "Restaurant":
         pick_restaurant = random.choice(restaurant_list)
         print(f"Your new place to eat will be {pick_restaurant}!")
         print("")
@@ -134,38 +129,28 @@ def choices(dict):
             pick_restaurant = random.choice(restaurant_list)
             print(f"Your new place to eat will be {pick_restaurant}!")
             print("")
-            user_input= input("Does this new place to eat sound good to you?(Y/N)")
-            print("")
-    if user_input == "Transportation":
+        user_input= input("Does this new place to eat sound good to you?(Y/N)")
+        print("")
+    elif user_input == "Transportation":
         pick_mode_of_transportation  = random.choice(mode_of_transportation_list)
         print(f"Your new mode of transportation will be {pick_mode_of_transportation}!")
         print("")         
-        user_input= input("Does that sound good to you?(Y/N)")
-        print("")
         if user_input == "N":
             pick_mode_of_transportation = random.choice(mode_of_transportation_list)
             print(f"Your new mode of transportation will be {pick_mode_of_transportation}!")
             print("")
-            user_input= input("Does that sound good to you?(Y/N)")
-            print("")
-    if user_input == "Entertainment":
+        user_input= input("Does that sound good to you?(Y/N)")
+        print("")
+    elif user_input == "Entertainment":
         pick_things_to_do = random.choice(things_to_do_list)
         print(f"You will be {pick_things_to_do}!")
-        print("")
-        user_input= input("Does that sound good to you?(Y/N)")
         print("")
         if user_input == "N":
             pick_things_to_do = random.choice(things_to_do_list)
             print(f"You will be {pick_things_to_do}!")
             print("")
-            user_input= input("Does that sound good to you?(Y/N)")
-            print("")
-    
-choices(my_day_trip_dictionary) 
+        user_input= input("Does that sound good to you?(Y/N)")
+        print("")   
+if user_input == "Y":
+    print(f"You will be traveling to {pick_destination} via {pick_mode_of_transportation}, eating at {pick_restaurant} and {pick_things_to_do} for your day trip! Have a wonderful time!")
 
-
- 
-
-
-
-#As a user, I want to be able to randomly re-select a destination, restaurant, mode of transportation, and/or form of entertainmnet if I don't like one or more of those things.    
