@@ -1,127 +1,93 @@
 
 import random
 
+                            #0                #1                #2                     #3                       #4
 destination_list = ["Galveston Island", "Jacob's Well", "Six Flags Fiesta", "Dinosaur Valley State Park", "Bracken Cave"]
+                        #0            #1            #2                 #3              #4
 restaurant_list = ["Whataburger", "Chili's", "Texas Roadhouse", "Chick-fil-A", "Firehouse Subs"]
+                                #0      #1      #2         #3           #4
 mode_of_transportation_list = ["Car", "Bus", "Train", "Motorcycle", "Helicopter"]
+                        #0          #1          #2            #3              #4
 things_to_do_list = ["Hiking", "Bicycling", "Dancing", "Singing Karaoke", "Swimming"]
 
+my_day_trip_dictionary = {"1": "Galveston Island", 
+"2": "Jacob's Well", "3": "Six Flags Fiesta", "4": "Dinosaur Valley State Park", "5": "Bracken Cave", 
+"6": "Whataburger", "7": "Chili's", "8": "Texas Roadhouse","9": "Chick-Fil-A", "10": "Firehouse Subs",
+"11":"bus", "12":"car", "13": "train", "14": "motorcycle", "15": "helicopter",
+"16": "dancing", "17":"hiking", "18": "bicycling", "19": "singing Karaoke", "20": "swimming"}
 
 def greeting():
-    print(""" 
-Thank you for choosing to use the Day Trip Generator! 
-    """)
-greeting()
-print("Let's get started:")
-print("")
+    print("")
+    print ("Thank you for choosing to use the Day Trip Generator!")
+    print("")
+    print("Let's get started:")
+    print("")
 
-def selection(list):
-    user_choice = False
-    while user_choice == False:
-        choose_option = random.choice(list)
-        print(f"You got {choose_option} for your destination!")
-        print("")
-        user_input = input("Does that sound good?(y/n): ")
-        print("")       
-        if user_input == "y":
-            print(f"{choose_option} is a great destination!")
-            print("")
-            return choose_option
-        else:
-            print("Let's try again!")
-            print("")
-result_from_selection = selection(destination_list)
-def selection(list):
-    user_choice = False
-    while user_choice == False:
-        choose = random.choice(list)
-        print(f"You will be dining at {choose}!")
-        print("")
-        user_input = input("Does that sound good?(y/n): ")
+def pick_destination(list):
+    confirm_bool = True
+    while confirm_bool == True:
+        picked_destination = random.choice(destination_list)
+        user_input = input(f"You will be traveling to {picked_destination}! Does that destination appeal to you? (y/n): ")
         print("")
         if user_input == "y":
-            print(f"{choose} is great restaurant!")
+            print(f"{picked_destination} will be great!")
             print("")
-            return choose
-        else:
+        if user_input == "n":
             print("Let's try again!")
             print("")
-result_from_selection = selection(restaurant_list)
-def selection(list):
-    user_choice = False
-    while user_choice == False:
-        choice = random.choice(list)
-        print(f"You will be arriving via {choice}!")
-        print("")
-        user_input = input("Does that sound good?(y/n): ")
-        print("")
-        if user_input == "y":
-            print(f"{choice} is a great mode of transportation!")
-            print("")
-            return choice
         else:
-            print("Let's try again!")
-            print("")
-result_from_selection = selection(mode_of_transportation_list)
-def selection(list):
-    user_choice = False
-    while user_choice == False:
-        option = random.choice(list)
-        print(f"You will be {option}!")
-        print("")
-        user_input = input("Does that sound good?(y/n): ")
-        print("")
-        if user_input == "y":
-            print(f"{option} will be fun!")
-            print("")
-            break
-        else:
-            print("Let's try again!")
-            print("")
-result_from_selection = selection(things_to_do_list)
-
-my_day_trip_dictionary = {"destination": "Galveston Island", 
-"well": "Jacob's Well", "flags": "Six Flags Fiesta", "dino": "Dinosaur Valley State Park", "cave": "Bracken Cave", 
-"restaurant": "Whataburger", "pasta": "Chili's", "steak": "Texas Roadhouse","chicken": "Chick-Fil-A", "sub": "Firehouse Subs",
-"transportation":"bus", "auto":"car", "track": "train", "wheels": "motorcycle", "fly": "helicopter",
-"entertainment": "dancing", "walking":"hiking", "riding": "bicycling", "sing": "singing Karaoke", "stroke": "swimming"}
-
-
-# def final_result(dict): 
-# for keys in my_day_trip_dictionary:
-#         print(keys)
-
-# user_input = input("Are you happy with your day trip selections? (y/n): ") 
-
-#As a user, I want to display my completed trip in the console.
-
-#As developer, I want to store my final day trip selections in a Dictionary, with a unique key value pair for each piece of my day trip.
-# trip = {
-#     "destination": "Timbuktu",
-#     # rest of your options go here as key value pairs
-# }
-
-# final_trip_results_dict = {}
-# print(final_trip_results_dict["Destination"])
-
-# my_day_trip_dictionary = {"Destination": [destination_list], "Restaurant": [restaurant_list], "Transportation": [mode_of_transportation_list], "Entertainment": [things_to_do_list]}
-# print(my_day_trip_dictionary["Destination"]) 
-
-# def select_again():
-#     for keys in my_day_trip_dictionary:
-#         print(keys)
-#         print("")
-#         user_input = input("Which part(s) would you like to change from the list above? ")
-#         print("")
-#     if user_input == keys:
-#         choose_option = random.choice(list)
-# select_again()
-
-
-
-
-
-
-
+            confirm_bool = False
  
+def pick_restaurant(list):
+    confirm_bool = True
+    while confirm_bool == True:
+        picked_restaurant = random.choice(restaurant_list)
+        user_input = input(f"You will be eating at {picked_restaurant}! Does that restaurant sound good to you? (y/n): ")
+        print("")
+        if user_input == "y":
+            print(f"{picked_restaurant} will be awesome!")
+            print("")
+        if user_input == "n":
+            print("Let's try again!")
+            print("")
+        else:
+            confirm_bool = False 
+def pick_mode_of_transportation(list):
+    confirm_bool = True
+    while confirm_bool == True:
+        picked_mode_of_transportation = random.choice(mode_of_transportation_list)
+        user_input = input(f"You will be traveling via {picked_mode_of_transportation}! Will that form of transportation work for you? (y/n): ")
+        print("")
+        if user_input == "y":
+            print(f"Traveling via {picked_mode_of_transportation} will be perfect!")
+            print("")
+        if user_input == "n":
+            print("Let's try again!")
+            print("")
+        else:
+            confirm_bool = False
+def pick_things_to_do(list):
+    confirm_bool = True
+    while confirm_bool == True:
+        picked_things_to_do = random.choice(things_to_do_list)
+        user_input = input(f"You will be {picked_things_to_do}! Does that sound good to you? (y/n): ")
+        print("")
+        if user_input == "y":
+            print(f"{picked_things_to_do} will be a lot of fun!")
+            print("")
+        if user_input == "n":
+            print("Let's try again!")
+            print("")
+        else:
+            confirm_bool = False
+
+
+
+greeting()
+random_choice = pick_destination(list)
+random_choice = pick_restaurant(list)
+random_choice = pick_mode_of_transportation(list)
+random_choice = pick_things_to_do(list)
+
+
 
