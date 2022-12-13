@@ -23,14 +23,14 @@ def greeting():
     print("Let's get started:")
     print("")
 
-def pick_destination(list):
+def picked_destination(list):
     confirm_bool = True
     while confirm_bool == True:
-        picked_destination = random.choice(destination_list)
-        user_input = input(f"You will be traveling to {picked_destination}! Does that destination appeal to you? (y/n): ")
+        pick_destination = random.choice(list)
+        user_input = input(f"You will be traveling to {pick_destination}! Does that destination appeal to you? (y/n): ")
         print("")
         if user_input == "y":
-            print(f"{picked_destination} will be great!")
+            print(f"{pick_destination} will be great!")
             print("")
         if user_input == "n":
             print("Let's try again!")
@@ -38,42 +38,29 @@ def pick_destination(list):
         else:
             confirm_bool = False
  
-def pick_restaurant(list):
+def picked_restaurant(list):
     confirm_bool = True
     while confirm_bool == True:
-        picked_restaurant = random.choice(restaurant_list)
-        user_input = input(f"You will be eating at {picked_restaurant}! Does that restaurant sound good to you? (y/n): ")
+        pick_restaurant = random.choice(list)
+        user_input = input(f"You will be eating at {pick_restaurant}! Does that restaurant sound good to you? (y/n): ")
         print("")
         if user_input == "y":
-            print(f"{picked_restaurant} will be awesome!")
+            print(f"{pick_restaurant} will be awesome!")
             print("")
         if user_input == "n":
             print("Let's try again!")
             print("")
         else:
             confirm_bool = False 
-def pick_mode_of_transportation(list):
+
+def picked_mode_of_transportation(list):
     confirm_bool = True
     while confirm_bool == True:
-        picked_mode_of_transportation = random.choice(mode_of_transportation_list)
-        user_input = input(f"You will be traveling via {picked_mode_of_transportation}! Will that form of transportation work for you? (y/n): ")
+        pick_mode_of_transportation = random.choice(list)
+        user_input = input(f"You will be traveling via {pick_mode_of_transportation}! Will that form of transportation work for you? (y/n): ")
         print("")
         if user_input == "y":
-            print(f"Traveling via {picked_mode_of_transportation} will be perfect!")
-            print("")
-        if user_input == "n":
-            print("Let's try again!")
-            print("")
-        else:
-            confirm_bool = False
-def pick_things_to_do(list):
-    confirm_bool = True
-    while confirm_bool == True:
-        picked_things_to_do = random.choice(things_to_do_list)
-        user_input = input(f"You will be {picked_things_to_do}! Does that sound good to you? (y/n): ")
-        print("")
-        if user_input == "y":
-            print(f"{picked_things_to_do} will be a lot of fun!")
+            print(f"Traveling via {pick_mode_of_transportation} will be perfect!")
             print("")
         if user_input == "n":
             print("Let's try again!")
@@ -81,13 +68,42 @@ def pick_things_to_do(list):
         else:
             confirm_bool = False
 
-
+def picked_things_to_do(list):
+    confirm_bool = True
+    while confirm_bool == True:
+        pick_things_to_do = random.choice(list)
+        user_input = input(f"You will be {pick_things_to_do}! Does that sound good to you? (y/n): ")
+        print("")
+        if user_input == "y":
+            print(f"{pick_things_to_do} will be a lot of fun!")
+            print("")
+        if user_input == "n":
+            print("Let's try again!")
+            print("")
+        else:
+            confirm_bool = False
+#Need to confirm that my day trip is "complete" once I like all of the random selections.
+def confirmation():
+    confirm = False
+    while confirm == False:
+        user_input = input(f"Does traveling to {picked_destination} via {picked_mode_of_transportation}, eating at {picked_restaurant} and {picked_things_to_do} sound like the perfect day trip? (y/n): ")
+        print("")
+    if user_input == "y":
+        print(f"You have confirmed that you will be traveling to {picked_destination} via {picked_mode_of_transportation}, eating at {picked_restaurant} and {picked_things_to_do}! Have a great time on your day trip!")
+        print("")
+    if user_input == "n":
+        print("What would you like to change?")
+    else: 
+        confirm = True
 
 greeting()
-random_choice = pick_destination(list)
-random_choice = pick_restaurant(list)
-random_choice = pick_mode_of_transportation(list)
-random_choice = pick_things_to_do(list)
-
-
+picked_destination(destination_list)
+picked_restaurant(restaurant_list)
+picked_mode_of_transportation(mode_of_transportation_list)
+picked_things_to_do(things_to_do_list)
+confirmation()
+ 
+#want to store my final day trip selections in a Dictionary, with a unique key value pair for each piece of my day trip.
+# for key, value in my_day_trip_dictionary.items():
+#     print(f"{key}: {value}")
 
